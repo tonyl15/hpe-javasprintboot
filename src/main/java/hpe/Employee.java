@@ -1,7 +1,11 @@
 package hpe;
 
+/**
+ * Employee class represents an employee with their details such as employee ID,
+ * first name, last name, email, and title.
+ */
 public class Employee {
-    
+
     private String employee_id;
     private String first_name;
     private String last_name;
@@ -55,7 +59,7 @@ public class Employee {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     @Override
     public String toString() {
         return "Employee [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name

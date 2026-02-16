@@ -1,18 +1,33 @@
 package hpe;
 
-import java.util.Arrays;
+import org.springframework.stereotype.Service;
 
+/**
+ * EmployeeManager is responsible for managing employee data.
+ */
+@Service
 public class EmployeeManager {
-    public Employees initializeEmployees() {
-        Employees employees = new Employees();
-        
-        employees.setEmployeeList(Arrays.asList(
-            new Employee("1", "John", "Doe", "john.doe@company.com", "Engineering"),
-            new Employee("2", "Jane", "Smith", "jane.smith@company.com", "Marketing"),
-            new Employee("3", "Bob", "Johnson", "bob.johnson@company.com", "Sales"),
-            new Employee("4", "Alice", "Williams", "alice.williams@company.com", "HR")
-        ));
-        
+
+    private static Employees employees = new Employees();
+
+    static
+    {
+        Employee employee1 = new Employee("1", "First1", "Last1", "Email1", "Title1");
+        Employee employee2 = new Employee("2", "First2", "Last2", "Email2", "Title2");
+        Employee employee3 = new Employee("3", "First3", "Last3", "Email3", "Title3");
+
+        employees.getEmployeeList().add(employee1);
+        employees.getEmployeeList().add(employee2);
+        employees.getEmployeeList().add(employee3);
+    }
+  
+    public Employees getAllEmployees()
+    {
         return employees;
+    }
+  
+    public void addEmployee(Employee employee)
+    {
+        employees.getEmployeeList().add(employee);
     }
 }
